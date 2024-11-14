@@ -27,22 +27,22 @@ https://github.com/user-attachments/assets/f6138af9-dfe2-496e-9d0b-5115f4428b88
 https://github.com/user-attachments/assets/b8d75aef-808c-4846-99a5-bfa2079ac798
 
 ### Coral Cove
-
+https://github.com/user-attachments/assets/d52e6868-b94c-487c-a75b-d48ecc182c37
 
 ### Shell Seekers
-
+https://github.com/user-attachments/assets/372bb157-aaa0-4f89-893d-e804d394ec18
 
 ### Palm Grove Shuffle
-
+https://github.com/user-attachments/assets/046c0a1a-7e0e-4e17-b1c8-1bc2232025ca
 
 ### Tropical Tangle
-
+https://github.com/user-attachments/assets/08d0e6ed-6693-4a5f-bd9a-2de8302f9d62
 
 ### Crate Caper
-
+https://github.com/user-attachments/assets/06223d5c-e8b7-4729-b04a-e3b3b10497c3
 
 ### Shoreline Shuffle
-
+https://github.com/user-attachments/assets/86480985-88e7-463d-9203-a22e04203415
 
 ### Beachy Bounty
 https://github.com/user-attachments/assets/d0c8cff4-5297-45be-9b3c-bbd4ad789510
