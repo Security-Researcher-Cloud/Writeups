@@ -7,29 +7,21 @@ called Connections where you simply group four related words together. I've been
 quite suspicious about randomElf's score of fifty thousand points - something seems off about that, don't you think?
 
 ## Rules
-![prologue-elf-connect-instructions-silver]( ../../../Domains/hhc24-elfconnect.holidayhackchallenge.com/prologue-elf-connect-instructions-silver.png)
+![prologue-elf-connect-instructions-silver]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-instructions-silver.png)
+
 ## Hints
-```
-Elf Connect Easy
-From: Angel Candysalt
-Terminal: Elf Connect
-I love brain games! This one is like the New York Times Connections game. Your goal here is to find groups of items that share something in common. Think of each group as having a hidden connection or theme—four items belong together, and there are multiple groups to find! See if you can spot patterns or common threads to make connections. Group all the items correctly to win!
-```
+![](../../../Assets/images/prologue/elf-connect/prologue-elf-connect-hint-easy.png)
 
-```
-Elf Connect Hard
-From: Angel Candysalt
-Terminal: Elf Connect
-WOW! A high score of 50,000 points! That’s way beyond the limit! With only four rounds and a max of 400 points per round, the top possible score should be 1,600 points. So, how did someone get to 50,000? Something unusual must be happening!
+![](../../../Assets/images/prologue/elf-connect/prologue-elf-connect-hint-hard.png)
 
-If you're curious, you might want to check under the hood. Try opening the browser's developer tools console and looking around—there might even be a variable named 'score' that could give you some insights. Sometimes, games hold secrets for those who dig a little deeper. Give it a shot and see what you can discover!
-```
-
-## Solution
+## Solution 
 
 ### Silver Solution (Manual)
-For the simplest Version (Silver) all that is required is matching the 4 word sets together with other words of similar relation. This can be brute forced through a simple guessing, but most of them have easy to recognize themes attached to them. Each round when completed will take you to the next until all of them are complete. Once complete then you will be awarded the Silver Trophy
-![prologue-elf-connect-silver-solution-achievement]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-silver-solution-achievement.png)
+For the simplest Version (Silver) all that is required is matching the 4 word sets together with other words of similar 
+relation. This can be brute forced through a simple guessing, but most of them have easy to recognize themes attached to 
+them. Each round when completed will take you to the next until all of them are complete. Once complete then you will be
+awarded the Silver Trophy
+
 #### Round 1
 ![prologue-elf-connect-regular-round1-solution]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-regular-round1-solution.png)
 ```
@@ -80,14 +72,18 @@ const wordSets = {
 		[4, 8, 13, 15]  // Set 4
 	];
 ```
+![prologue-elf-connect-silver-solution-achievement]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-silver-solution-achievement.png)
 
 ### Gold Solution
-![prologue-elf-connect-gold-achievement]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-gold-achievement.png)
 
 ```console
 score = highscore
 scoreText.setText('Score: ' + score)
 ```
+This should grant the gold trophy upon executing the console 
+
+![prologue-elf-connect-gold-achievement]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-gold-achievement.png)
+
 ## Entire JavaScript File (Posterity)
 ```javascript
 <script>
