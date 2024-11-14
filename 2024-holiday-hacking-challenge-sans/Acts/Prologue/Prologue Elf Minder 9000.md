@@ -92,6 +92,10 @@ https://github.com/user-attachments/assets/8ac558c9-f431-47ac-b213-024eccd204f9
 > [!NOTE]
 > You can modify game.segments to create diagonal path segments, but these will fail due to sanity checks that
 > occur. This may also occur if you try to delete all obstacles from the level.
+ 
+> [!TIP]
+> You can learn about the code and how you can specifically create the intended effect by examining the section below
+> (Code Review)(#Code-Review)
 
 #### Reproduction Steps
 This puzzle is not possible without a few modifications. In order support the modifications, we need 1 extra spring to 
@@ -159,6 +163,100 @@ Modify your `Local Storage` (available via the development tools in your browser
 ## Be Stubborn
 
 ### Stop Guessing, Just Edit
-By adding a `edit=1` to the game URL, a level editor in started
+> [!TIP]
+> By adding a `edit=1` to the game URL, a level editor in started
+ 
+**Identified By the code:**
+```javascript
+const urlParams = __PARSE_URL_VARS__();
+const levelNum = urlParams.level ? urlDecode(urlParams.level) : '';
+const rid = urlParams.id;
+const isEditor = !!urlParams.edit;
 
-### Just Let Me Cheat Via Javascript
+if (isEditor) {
+    adminControls.classList.remove('hidden');
+    console.log('⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡');
+    console.log('⚡ Hey, I noticed you are in edit mode! Awesome!');
+    console.log('⚡ Use the tools to create your own level.');
+    console.log('⚡ Level data is saved to a variable called `game.entities`.');
+    console.log('⚡ I\'d love to check out your level--');
+    console.log('⚡ Email `JSON.stringify(game.entities)` to evan@counterhack.com');
+    console.log('⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡');
+}
+```
+
+So by modifying the url we place entities where we think the should be, save and refresh it tyo have a modified level 
+that can be completed. This is similar to the solution provided in the cheat method above, as the ultimate change that 
+stems from the edit level is the entities being changed. 
+
+### Code Review
+```javascript
+function getSpringTarget(springCell) {
+        const journey = this.hero.journey;
+        const dy = journey[1][1] - journey[0][1];
+        const dx = journey[1][0] - journey[0][0];
+
+        let nextPoint = [ springCell[0], springCell[1] ];
+        let entityHere;
+        let searchLimit = 15;
+        let searchIndex = 0;
+        let validTarget;
+
+        do {
+            searchIndex += 1;
+            nextPoint = [ nextPoint[0] + dx, nextPoint[1] + dy ];
+            
+            entityHere = this.entities.find(entity => 
+                ~[
+                    EntityTypes.PORTAL,
+                    EntityTypes.SPRING,
+                ].indexOf(entity[2]) &&
+                searchIndex &&
+                entity[0] === nextPoint[0] &&
+                entity[1] === nextPoint[1]);
+            
+            if (searchIndex >= searchLimit) {
+                break;
+            }
+
+            validTarget = this.isPointInAnySegment(nextPoint) || entityHere;
+        } while (!validTarget);
+
+        if (this.isPointInAnySegment(nextPoint) || entityHere) {
+            if (entityHere) return this.segments[0][0]; // fix this
+            return nextPoint;
+        } else {
+            return;
+        }        
+    }
+```
+This function above,calculates the location the Elf will land on when using the Spring to jump. It determines where the 
+Elf will land by selecting the next cell in the direction the Elf is moving (noted in the [rules](#rules)). It determines
+if the square contains a Portal/Tunnel (EntityTypes.PORTAL) or a Spring (EntityTypes.SPRING) which we know based on the
+extracted code of 
+```javascript
+entityHere = this.entities.find(entity => 
+                ~[
+                    EntityTypes.PORTAL,
+                    EntityTypes.SPRING,
+                ].indexOf(entity[2]) &&
+                searchIndex &&
+                entity[0] === nextPoint[0] &&
+                entity[1] === nextPoint[1]);
+```
+So what happens here? It returns to where the path starts. That path start may be the beginning flag, or it may be another
+segment. But lets verify if that is correct:
+```javascript
+if (this.isPointInAnySegment(nextPoint) || entityHere) {
+            if (entityHere) return this.segments[0][0]; // fix this
+            return nextPoint;
+        } else {
+            return;
+        }   
+```
+OH NO!! Its not correct. It returns to `segments[0][0]`, which is the first segment start location. Ie. This return is 
+not actually point to the beginning of the path, but to the first segment placed on the board. `ORDER MATTERS` So you 
+can jump to any square that is not blocked.
+
+### Just Let Me Cheat Via Javascript 
+
