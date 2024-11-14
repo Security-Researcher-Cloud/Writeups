@@ -1,3 +1,0 @@
-## Disclaimer
-The initial vector used via the `runtoanswer` binary, was closed by SANS during the live event, on or around November 13, 2024 as there was confusion regarding how to submit the answers given the proper path. This was intended as an "Alternative Path". Recommend using alternative Database path to solve this challenge. 
-![[SANS 2024 Holiday CTF/Assets/images/act1/hardware-part-2/act-1-hardware-part-2-patched-vector-runtoanswer-chat.png]]
