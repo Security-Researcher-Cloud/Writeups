@@ -1,7 +1,7 @@
 # Elf Minder 9000
 
 ## Rules
-![]()(https://github.com/Security-Researcher-Cloud/Writeups/tree/main/Assets/videos/prologue/elf-minder/prologue-elf-minder-rules.mp4)
+[![Sample Title](../../../Assets/images/prologue/elf-minder/prologue-elf-minder-hint-resuable-paths.png)(https://github.com/Security-Researcher-Cloud/Writeups/tree/main/Assets/videos/prologue/elf-minder/prologue-elf-minder-rules.mp4)
 
 ## Hints
 
