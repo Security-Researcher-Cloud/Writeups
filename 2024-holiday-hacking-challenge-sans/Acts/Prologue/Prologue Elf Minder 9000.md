@@ -1,7 +1,7 @@
 # Elf Minder 9000
 
 ## Rules
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-rules.mp4"></video>
+https://github.com/Security-Researcher-Cloud/Writeups/tree/main/Assets/videos/prologue/elf-minder/prologue-elf-minder-rules.mp4
 
 ## Hints
 
