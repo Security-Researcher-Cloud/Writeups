@@ -15,12 +15,12 @@
 | First Terminal  | Prologue | Frosty's Beach | 17/23       | ![prologue-objective-location-first-terminal](../../../Assets/images/prologue/first-terminal/prologue-objective-location-first-terminal.png)         |
 
 ### NPCs
-| NPC Name                  | Act      | Area           | Coordinates | Image                                                                                                              |
-| ------------------------- | -------- | -------------- | ----------- |--------------------------------------------------------------------------------------------------------------------|
-| Poinsettia McMittens      | Prologue | Frosty's Beach | 52/8        | ![poinsettiamcmittens](../../../Domains/2024.holidayhackchallenge.com/images/avatar/elves/poinsettiamcmittens.png) |
-| Goose of Christmas Island | Prologue | Frosty's Beach | 44/11       | ![goose-christmas](../../../Domains/2024.holidayhackchallenge.com/images/avatar/geese/goose-christmas.png)         |
-| Angel Candysalt           | Prologue | Frosty's Beach | 29/15       | ![angelcandysalt](../../../Domains/2024.holidayhackchallenge.com/images/avatar/elves/angelcandysalt.png)           |
-| Jingle Ringford           | Prologue | Frosty's Beach | 18/24       | ![jingleringford](../../../Domains/2024.holidayhackchallenge.com/images/avatar/elves/jingleringford.png)           |
+| NPC Name                  | Act      | Area           | Coordinates | Image                                                                      |
+| ------------------------- | -------- | -------------- | ----------- |----------------------------------------------------------------------------|
+| Poinsettia McMittens      | Prologue | Frosty's Beach | 52/8        | ![poinsettiamcmittens](../../../Assets/images/npc/poinsettiamcmittens.png) |
+| Goose of Christmas Island | Prologue | Frosty's Beach | 44/11       | ![goose-christmas](../../../Assets/images/npc/goose-christmas.png)         |
+| Angel Candysalt           | Prologue | Frosty's Beach | 29/15       | ![angelcandysalt](../../../Assets/images/npc/angelcandysalt.png)           |
+| Jingle Ringford           | Prologue | Frosty's Beach | 18/24       | ![jingleringford](../../../Assets/images/npc/jingleringford.png)           |
 
 ### Billboards
 | Item Name              | Act      | Area           | Coordinates | Image                                                                                                                                                       |
