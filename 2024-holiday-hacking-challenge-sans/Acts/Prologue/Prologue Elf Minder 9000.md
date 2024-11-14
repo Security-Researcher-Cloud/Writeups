@@ -89,7 +89,8 @@ https://github.com/user-attachments/assets/8ac558c9-f431-47ac-b213-024eccd204f9
 > in the game. If this occurs simply refresh the page or delete the key from storage. This however may result in the 
 > placements being lost
 
-> [!NOTE] You can modify game.segments to create diagonal path segments, but these will fail due to sanity checks that
+> [!NOTE]
+> You can modify game.segments to create diagonal path segments, but these will fail due to sanity checks that
 > occur. This may also occur if you try to delete all obstacles from the level.
 
 #### Reproduction Steps
