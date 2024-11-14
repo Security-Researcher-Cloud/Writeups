@@ -75,12 +75,25 @@ const wordSets = {
 ![prologue-elf-connect-silver-solution-achievement]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-silver-solution-achievement.png)
 
 ### Gold Solution
+![img.png](../../../Assets/images/prologue/elf-connect/prologue-elf-connect-gold-steps.png)
+> [!CAUTION]
+> Recommend that before you engage with any of the console commands, that you run a single board completely to ensure 
+> everything is loaded otherwise you may end up with a console error similar to the following
+> 
+> ![img.png](prologue-elf-connect-console-error.png)
+ 
+**Step 1**: Clear the board such that your normal score is updated, ideally, per the caution note above, completing the
+first board
 
-```console
-score = highscore
-scoreText.setText('Score: ' + score)
+**Step 2**: Use the highscore that is displayed in `#2` inside of `#3`. `#3` is the console window where the code listed
+below will be added
+ 
+```javascript
+score = highscore + 1
+scoreText.setText('Score: ' + score) // Entirely Optional but great to verify the score was updated
 ```
-This should grant the gold trophy upon executing the console 
+
+This should grant the gold trophy upon executing the console
 
 ![prologue-elf-connect-gold-achievement]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-gold-achievement.png)
 
