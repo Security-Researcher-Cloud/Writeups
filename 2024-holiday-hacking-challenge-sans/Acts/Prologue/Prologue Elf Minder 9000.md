@@ -70,6 +70,14 @@ After completing all 12 of the puzzles, you will be awarded the silver completio
 ### Bonus Stage - `A Real Pickle`
 
 #### No Cheating Method
+> [!IMPORTANT]
+> If the player jumps using a spring and in the jump direction there is no path, but a positioned element, the player
+> jumps back to the starting point of the first segment.
+
+> [!IMPORTANT]
+> If you place the end flag path and spring first, then the spring will diagonally jump. Change this order and the spring
+> will jump somewhere else
+
 https://github.com/user-attachments/assets/c0e9ed32-0094-4b1a-8a89-6a8ca9a8fa27
 
 #### Let's Play Around A Bit
@@ -80,6 +88,9 @@ https://github.com/user-attachments/assets/8ac558c9-f431-47ac-b213-024eccd204f9
 > sites as this may result in unexpected changes. Additionally, modification of the contents may result in several errors
 > in the game. If this occurs simply refresh the page or delete the key from storage. This however may result in the 
 > placements being lost
+
+> [!NOTE] You can modify game.segments to create diagonal path segments, but these will fail due to sanity checks that
+> occur. This may also occur if you try to delete all obstacles from the level.
 
 #### Reproduction Steps
 This puzzle is not possible without a few modifications. In order support the modifications, we need 1 extra spring to 
@@ -143,3 +154,10 @@ Modify your `Local Storage` (available via the development tools in your browser
   ![prologue-elf-minder-regular-a-real-pickle-localstorage](../../../Assets/images/prologue/elf-minder/prologue-elf-minder-regular-a-real-pickle-localstorage.png)
 
 ![](../../../Assets/images/prologue/elf-minder/prologue-elf-minder-gold-achievement.png)
+
+## Be Stubborn
+
+### Stop Guessing, Just Edit
+By adding a `edit=1` to the game URL, a level editor in started
+
+### Just Let Me Cheat Via Javascript
