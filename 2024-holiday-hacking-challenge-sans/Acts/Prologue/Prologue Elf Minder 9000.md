@@ -2,7 +2,7 @@
 
 ## Rules
 
-<video src="https://raw.githubusercontent.com/Security-Researcher-Cloud/Writeups/refs/heads/main/Assets/videos/prologue/elf-minder/prologue-elf-minder-rules-stated.mp4"></video>
+https://github.com/user-attachments/assets/31c71bdf-3455-405c-affc-b1f41a02f776
 
 ## Hints
 
@@ -15,48 +15,48 @@
 ## Pathway Options
 
 ### Sandy Start
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-sandy-start.mp4"></video>
+https://github.com/user-attachments/assets/cee7c341-83d3-494a-b73c-6ede2ef85177
 
 ### Waves & Crates
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-waves-and-crates.mp4"></video>
+https://github.com/user-attachments/assets/027826b5-a150-4c4e-99cd-85607ca36a52
 
 ### Tidal Treasures
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-tidal-treasures-map.mp4"></video>
+https://github.com/user-attachments/assets/f6138af9-dfe2-496e-9d0b-5115f4428b88
 
 ### Dune Dash
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-dune-dash-level.mp4"></video>
+https://github.com/user-attachments/assets/b8d75aef-808c-4846-99a5-bfa2079ac798
 
 ### Coral Cove
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-coral-cove-level.mp4"></video>
+
 
 ### Shell Seekers
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-shell-seekers-level.mp4"></video>
+
 
 ### Palm Grove Shuffle
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-palm-grove-shuffle-level.mp4"></video>
+
 
 ### Tropical Tangle
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-tropical-tangle-level.mp4"></video>
+
 
 ### Crate Caper
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-crate-caper-level.mp4"></video>
+
 
 ### Shoreline Shuffle
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-shoreline-shuffle-level.mp4"></video>
+
 
 ### Beachy Bounty
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-beachy-bounty-level.mp4"></video>
+https://github.com/user-attachments/assets/d0c8cff4-5297-45be-9b3c-bbd4ad789510
 
 ### Driftwood Dunes
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-driftwood-dunes-level.mp4"></video>
+https://github.com/user-attachments/assets/1f0170fb-14c0-49b1-82e2-0e5deaf846e7
 
 ### Bonus Stage - `A Real Pickle`
 
 #### No Cheating Method
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-a-real-pickle-nocheat-level.mp4"></video>
+https://github.com/user-attachments/assets/c0e9ed32-0094-4b1a-8a89-6a8ca9a8fa27
 
 #### Let's Play Around A Bit
-<video src="../../../Assets/videos/prologue/elf-minder/prologue-elf-minder-video-regular-a-real-pickle-level.mp4"></video>
+https://github.com/user-attachments/assets/8ac558c9-f431-47ac-b213-024eccd204f9
 
 Requires modification of the local storage
 
