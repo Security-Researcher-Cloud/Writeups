@@ -2,7 +2,7 @@
 
 ## Rules
 
-https://raw.githubusercontent.com/Security-Researcher-Cloud/Writeups/refs/heads/main/Assets/videos/prologue/elf-minder/prologue-elf-minder-rules-stated.mp4
+<video src="https://raw.githubusercontent.com/Security-Researcher-Cloud/Writeups/refs/heads/main/Assets/videos/prologue/elf-minder/prologue-elf-minder-rules-stated.mp4"></video>
 
 ## Hints
 
