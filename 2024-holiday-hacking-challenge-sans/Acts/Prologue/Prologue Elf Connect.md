@@ -72,6 +72,27 @@ const wordSets = {
 		[4, 8, 13, 15]  // Set 4
 	];
 ```
+So by adding the following javascript code to the console to get the printed solutions
+```javascript
+for (let [round, set] of Object.entries(wordSets)) {
+    console.log(`Set ${round}`);
+    console.log("=".repeat(80));
+    for (let indices of correctSets) {
+        // Map the indices to words in the set
+        let selectedWords = indices.map(i => set[i]);
+        console.log(selectedWords);
+    }
+    console.log("=".repeat(80));
+}
+```
+![img.png](../../../Assets/images/prologue/elf-connect/prologue-elf-connect-silver-answers-js.png)
+
+> [!TIP]
+> You can Solve this via other languages as well if you are more comfortable with them. A few examples of this are as 
+> follows: 
+>     - [Go Example](../../../Assets/code/prologue/prologue-elf-connect-silver-solver.go)
+>     - [Python Example](../../../Assets/code/prologue/prologue-elf-connect-silver-solver.py)
+
 ![prologue-elf-connect-silver-solution-achievement]( ../../../Assets/images/prologue/elf-connect/prologue-elf-connect-silver-solution-achievement.png)
 
 ### Gold Solution
@@ -80,14 +101,21 @@ const wordSets = {
 > Recommend that before you engage with any of the console commands, that you run a single board completely to ensure 
 > everything is loaded otherwise you may end up with a console error similar to the following
 > 
-> ![img.png](prologue-elf-connect-console-error.png)
+> ![img.png](../../../Assets/images/prologue/elf-connect/prologue-elf-connect-console-error.png)
  
 **Step 1**: Clear the board such that your normal score is updated, ideally, per the caution note above, completing the
-first board
+first board. 
 
 **Step 2**: Use the highscore that is displayed in `#2` inside of `#3`. `#3` is the console window where the code listed
-below will be added
- 
+below will be added. But we need to add it to the score, so where is that stored? Given the code file for this, we can
+find a critical piece (See: LINE #57)
+```javascript
+let score = parseInt(sessionStorage.getItem('score') || '0'); // Initialize score
+```
+
+So we want to modify the current score which is in a variable named `score`. So we should modify the score value to be 
+the score we want
+
 ```javascript
 score = highscore + 1
 scoreText.setText('Score: ' + score) // Entirely Optional but great to verify the score was updated
