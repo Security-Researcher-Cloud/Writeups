@@ -26,3 +26,6 @@ go.work.sum
 .idea/material_theme_project_new.xml
 .idea/workspace.xml
 .idea/aws.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/Writeups.iml
