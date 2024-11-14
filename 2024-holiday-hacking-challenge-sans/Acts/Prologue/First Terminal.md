@@ -2,7 +2,15 @@
 ## Objectives
 ![](../../../Assets/images/prologue/first-terminal/prologue-first-terminal-objective.png)
 
-## First Terminal
+## Challenge
+_I'm Jingle Ringford, and while we're currently at Frosty's Beach on Christmas Island transitioning from the 2023 to 2024 
+SANS Holiday Hack Challenge, we'll soon head back to the North Pole. Although Santa's busy packing, I'm here to give 
+newcomers a quick orientation and present you with a magical never-melting snowball souvenir. You can find your
+Objectives, Hints, and other Challenge resources by clicking the snowball on your avatar._ 
+
+_Now, click on the Cranberry Pi Terminal and follow the on-screen instructions._
+
+## Solution (Silver)
 The first terminal was the introduction to the Holiday Hack Challenge. In this challenge, your only objective it to was
 to put `answer` in the top part of the window next to the `>` symbol.
 
