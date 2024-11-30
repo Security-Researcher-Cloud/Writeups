@@ -1,9 +1,9 @@
 ## Objectives
-![](../../../Assets/images/act1/hardware-part-1/Pasted%20image%2020241125200143.png)
-![](../../../Assets/images/act1/hardware-part-1/{238391C8-C649-4F96-A995-BEC5F7F360A3}.png)
+![](../../../Assets/images/act1/hardware-part-1/act1-hardware-part-1-top-level-objective.png)
+![](../../../Assets/images/act1/hardware-part-1/act1-hardware-part-1-objective.png)
 ## Hints
-![](../../../Assets/images/act1/hardware-part-1/{05B15D04-3671-4326-8E6E-B409416D4A3D}.png)
-![](../../../Assets/images/act1/hardware-part-1/{3EAB818C-B80B-47F0-A849-FD8195C8E3B1}.png)
+![](../../../Assets/images/act1/hardware-part-1/act1-hardware-part-1-shredded-to-pieces.png)
+![](../../../Assets/images/act1/hardware-part-1/act1-hardware-part-1-hint-on-the-cutting-edge.png)
 ## Resources
 ### De-shred Image
 ```python
@@ -126,7 +126,7 @@ const targetPins = [
 > - [Golang Application](../../../Assets/code/act1/hardware-part1/py-to-go-bad-transform-connection-force.go)
 
 ```javascript
-fetch(“[https://hhc24-hardwarehacking.holidayhackchallenge.com/api/v1/complete](https://hhc24-hardwarehacking.holidayhackchallenge.com/api/v1/complete)", {  
+fetch("https://hhc24-hardwarehacking.holidayhackchallenge.com/api/v1/complete", {  
 	method: “POST”,  
 	headers: {  
 		“Content-Type”: “application/json”,  

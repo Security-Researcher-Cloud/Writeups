@@ -39,21 +39,33 @@ Whether you're a first-time player or a seasoned participant, this year’s Holi
 		- [Main In-depth Analysis](../Supporting/act1/hardware-part-2/Main%20In-depth%20Analysis.md)
 		- [SLH in-depth Analysis](../Supporting/act1/hardware-part-2/SLH%20in-depth%20Analysis.md)
 1. [Act II](#act-ii)
+	- [Locations](Acts/Act%20II/Locations.md)
+	- [Conversations](Acts/Act%20II/Conversations.md)
+	- [Mobile Analysis](Acts/Act%20II/Mobile%20Analysis.md)
+	- [Drone Path](Acts/Act%20II/Drone%20Path.md)
+	- [PowerShell](Acts/Act%20II/PowerShell.md)
+	- [Snowball Slowdown](Acts/Act%20II/Snowball%20Slowdown.md)
+	- [Microsoft KC7](Acts/Act%20II/Microsoft%20KC7.md)
 2. [Act III](#act-iii)
 
 
 ## Prologue
 _*Released: November 7, 2024*_
+
 ![](../Assets/images/prologue/prologue-story-indicator-from-menu.png)
 
 ![](../Assets/images/2024-hhc-prologue-achievements.png)
 ## Act I
 _*Released: November 11, 2024*_
+
 ![](../Assets/images/act1/act1-story-indicator-from-menu.png)
 
 ![](../Assets/images/2024-hhc-act-1-achievements.png)
 ## Act II
 _*Released: November 18, 2024*_
 
+![](../Assets/images/act2/act2-story-indicator-from-menu.png)
+
+![](../Assets/images/2024-hhc-act-2-achievements.png)
 ## Act III
 _*Released: December 2, 2024*_

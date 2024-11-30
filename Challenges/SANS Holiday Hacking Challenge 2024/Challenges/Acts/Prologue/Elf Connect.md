@@ -92,9 +92,8 @@ for (let [round, set] of Object.entries(wordSets)) {
 > [!CAUTION]
 > Recommend that before you engage with any of the console commands, that you run a single board completely to ensure 
 > everything is loaded otherwise you may end up with a console error similar to the following
-> 
-> ![prologue-elf-connect-console-error.png](prologue-elf-connect-console-error.png)
- 
+>  ![](../../../Assets/images/prologue/elf-connect/prologue-elf-connect-console-error.png)
+
 **Step 1**: Clear the board such that your normal score is updated, ideally, per the caution note above, completing the first board. 
 
 **Step 2**: Use the `highscore` that is displayed in `#2` inside of `#3`. `#3` is the console window where the code listed below will be added. But we need to add it to the score, so where is that stored? Given the code file for this, we can find a critical piece (See: `LINE #57`)
