@@ -8,7 +8,7 @@ through as I like.
 
 ## Challenges
 - [SANS 2024 Holiday Hacking Challenge](Challenges/SANS%20Holiday%20Hacking%20Challenge%202024/Challenges/2024%20SANS%20Holiday%20Hacking%20Challenge.md)
-- [Ghost Bank Challenge](Challenges/SANS%20Holiday%20Hacking%20Challenge%202024/Challenges/Ghost%20Bank/Readme.md)
+- [Ghost Bank Linkedin Challenge](Challenges/Ghost%20Bank/Readme.md)
 
 ## Contributing 
 - Security-Researcher-Cloud
